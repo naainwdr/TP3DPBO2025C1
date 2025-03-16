@@ -7,42 +7,73 @@ Saya Nina Wulandari dengan NIM 2312091 mengerjakan Tugas Praktikum 3 dalam mata 
 
 
 # Penjelasan Atribut dan Methods
-1. Class Petshop
-   * id → ID produk
-   * nama_produk → Nama produk
-   * harga_produk → Harga produk
-   * stok_produk → Stok produk
-   * foto_produk → Foto produk (khusus PHP)
-
-2. Class Aksesoris (Turunan dari Petshop)
-   * jenis → Jenis aksesoris
-   * bahan → Bahan aksesoris
-   * warna → Warna aksesoris
-
-3. Class Baju (Turunan dari Aksesoris)
-   * untuk → Hewan yang cocok menggunakan produk ini
-   * size → Ukuran produk
-   * merk → Merk produk
-
+1. Class Komponen
+   * string merk → Menyimpan merek (brand) dari komponen.
+   * int harga → Menyimpan harga dari komponen.
+     
+2. Class Ram
+   * int kapasitas → Menyimpan kapasitas RAM.
+   * int kecepatan → Menyimpan kecepatan RAM.
+   * string tipe → Menyimpan tipe RAM (DDR4, DDR5, dll).
+     
+3. Class Processor
+   * int core_count → Menyimpan jumlah core pada processor.
+   * double clock_speed → Menyimpan kecepatan clock processor.
+     
+4. Class Harddrive
+   * int kapasitas → Menyimpan kapasitas penyimpanan.
+   * string tipe → Menyimpan tipe penyimpanan (HDD/SSD).
+     
+5. Class Gpu
+   * int vram_size → Menyimpan ukuran VRAM dari GPU.
+   * string architecture → Menyimpan arsitektur GPU.
+     
+6. Class Cpu
+   * int cache_size → Menyimpan ukuran cache CPU.
+   * bool hyper_threading → Menyimpan status dukungan hyper-threading.
+     
+7. Class Komputer
+   * string pemilik → Menyimpan nama pemilik komputer.
+   * string os → Menyimpan sistem operasi yang digunakan.
+   * string jenis → Menyimpan jenis komputer (PC/Laptop).
+   * Cpu cpu → Menyimpan informasi CPU yang digunakan.
+   * Gpu gpu → Menyimpan informasi GPU yang digunakan.
+   * list<Ram> ram_list → Menyimpan daftar RAM yang terpasang.
+   * list<Harddrive> harddrive_list → Menyimpan daftar hard drive yang terpasang.
+     
+  Methods:
+  * void add_ram(Ram ram) → Menambahkan RAM ke dalam daftar RAM.
+  * void add_harddrive(Harddrive harddrive) → Menambahkan hard drive ke dalam daftar hard
+    drive.
+    
+8. Class Laptop
+   * int kapasitas_baterai → Menyimpan kapasitas baterai laptop.
+   * double berat → Menyimpan berat laptop.
+   * int jumlah_baterai → Menyimpan jumlah baterai yang digunakan.
+     
+9. Class Pc
+   * int daya_psu → Menyimpan daya PSU dalam watt.
+   * string jenis_pendingin → Menyimpan jenis sistem pendingin yang digunakan.
+   * int jumlah_slot_expan → Menyimpan jumlah slot ekspansi yang tersedia.
+     
 Masing-masing class memiliki Methods:
 * Getter di tiap atribut untuk mengambil nilai dari atribut suatu objek.
 * Setter di tiap atribut untuk menetapkan nilai atribut suatu objek.
 
-# Penjelasan Alur Program C++, Python, dan Java
-* Program mendefinisikan tiga class (Petshop, Aksesoris, Baju) dimana baju mewarisi Aksesoris, dan Aksesoris mewarisi Petshop.
-* Di dalam main, sebuah list digunakan untuk menyimpan produk yang telah didefinisikan sebelumnya.
-* Pertama, program meminta user untuk memasukkan sebuah data produk baru (ID, nama, harga, stok, jenis, bahan, warna, untuk siapa, ukuran, merk).
-* Data ini kemudian disimpan ke dalam list.
-* Kemudiann fungsi displayTable() akan menampilkan daftar produk dalam bentuk tabel dengan lebar kolom yang disesuaikan secara dinamis menyesuaikan valuenya.
-* Data yang sudah ada dan data baru yang diinput akan ditampilkan.
-* Terakhir, setelah menampilkan tabel, program akan langsung exit/selesai dijalankan.
 
-# Penjelasan Alur Program PHP
-* Program mendefinisikan tiga class (Petshop, Aksesoris, Baju) dimana baju mewarisi Aksesoris, dan Aksesoris mewarisi Petshop.
-* Dalam index, program menampilkan 2 fitur, yaitu Form tambah produk dan Tampilan tabel daftar produk
-* User akan menambahkan data produk melalui form
-* Data masukan yang baru akan di set dan post ke tabel daftar produk
-* Data produk hanya berlaku saat sesi itu, setelah refresh akan mulai dari mula
+# Penjelasan Alur Class
+* Komponen sebagai kelas dasar menyimpan atribut merk dan harga.
+* Processor, Ram, dan Harddrive adalah child dari Komponen.
+* Cpu dan Gpu adalah child dari Processor untuk menyimpan detail CPU dan GPU.
+* Komputer sebagai parent dari class Laptop dan Pc
+
+
+# Penjelasan Alur Program C++, Python, dan Java
+* Dalam main kita buat objek dari child kelas komponen dahulu untuk bisa membuat kelas laptop dan atau pc dengan mengisi parameternya.
+* Kemudian komponen yang telah dibuat ditambahkan ke dalam objek Laptop atau Pc. CPU dan GPU diatur langsung, sedangkan RAM dan hard drive disimpan dalam daftar (array of object) untuk membuat objek myPC dan myLaptop
+* Membuat header supaya lebih rapih dan hardcode tampilan
+* Menampilkan data spesifikasi dari laptop dan pc sesuai dengan atributnya
+
 
 # Dokumentasi Program
 ## CPP
@@ -52,11 +83,4 @@ Masing-masing class memiliki Methods:
 ![Dokum TP3 Python](https://github.com/user-attachments/assets/d9180bb6-696e-48fd-a96f-60392049a5c9)
 
 ## JAVA
-
-
-
-## PYTHON
-![Dokum python](https://github.com/user-attachments/assets/51fd1b0e-d3df-4797-b8b6-d5eeb647bf56)
-
-## PHP
-![Dokum PHP (sebelum add)](https://github.com/user-attachments/assets/cb3d0594-841c-488d-b13e-e7c78f45c36a)
+![Dokum TP3 Java](https://github.com/user-attachments/assets/a2c6b963-50ad-4877-a697-7aeeb7b347db)
