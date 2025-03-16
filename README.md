@@ -3,7 +3,7 @@
 Saya Nina Wulandari dengan NIM 2312091 mengerjakan Tugas Praktikum 3 dalam mata kuliah DPBO untuk keberkahan-Nya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
 
 # Desain Diagram
-
+![DiagramTP3 drawio (1)](https://github.com/user-attachments/assets/706c7ec0-3958-497e-a029-d55d664e9929)
 
 
 # Penjelasan Atribut dan Methods
@@ -41,10 +41,10 @@ Saya Nina Wulandari dengan NIM 2312091 mengerjakan Tugas Praktikum 3 dalam mata 
    * list<Ram> ram_list → Menyimpan daftar RAM yang terpasang.
    * list<Harddrive> harddrive_list → Menyimpan daftar hard drive yang terpasang.
      
-  Methods:
-  * void add_ram(Ram ram) → Menambahkan RAM ke dalam daftar RAM.
-  * void add_harddrive(Harddrive harddrive) → Menambahkan hard drive ke dalam daftar hard
-    drive.
+    Methods:
+    * void add_ram(Ram ram) → Menambahkan RAM ke dalam daftar RAM.
+    * void add_harddrive(Harddrive harddrive) → Menambahkan hard drive ke dalam daftar hard
+      drive.
     
 8. Class Laptop
    * int kapasitas_baterai → Menyimpan kapasitas baterai laptop.
@@ -62,11 +62,30 @@ Masing-masing class memiliki Methods:
 
 
 # Penjelasan Alur Class
-* Komponen sebagai kelas dasar menyimpan atribut merk dan harga.
-* Processor, Ram, dan Harddrive adalah child dari Komponen.
-* Cpu dan Gpu adalah child dari Processor untuk menyimpan detail CPU dan GPU.
-* Komputer sebagai parent dari class Laptop dan Pc
+  1. Inheritance 
+     * Komponen → Processor → Cpu & Gpu (hierarchial inheritance)
+       
+       Cpu dan Gpu merupakan turunan dari Processor, yang mewarisi atribut core_count
+       dan clock_speed.
+     * Komponen → Ram, Harddrive
+       
+       Ram dan Harddrive mewarisi atribut merk dan harga dari Komponen.
+     * Komputer → Laptop & Pc
+       
+       Laptop dan Pc merupakan turunan dari Komputer, mewarisi atribut seperti pemilik,
+       cpu, gpu, ram_list, dan harddrive_list.
 
+   2. Composition (Komposisi)
+      * Komputer memiliki objek Cpu, Gpu, Ram, dan Harddrive
+      * Komputer tidak bisa berdiri sendiri tanpa komponen-komponen ini.
+      * Komputer menyimpan objek Cpu dan Gpu sebagai atribut.
+      * Komputer juga menyimpan daftar (list) objek Ram dan Harddrive.
+
+   3. Array of Object (List Objek)
+      * ram_list dan harddrive_list dalam Komputer
+        
+        Komputer memiliki daftar (list) objek Ram dan Harddrive, memungkinkan satu komputer memiliki lebih dari satu RAM atau hard drive.
+        
 
 # Penjelasan Alur Program C++, Python, dan Java
 * Dalam main kita buat objek dari child kelas komponen dahulu untuk bisa membuat kelas laptop dan atau pc dengan mengisi parameternya.
@@ -80,7 +99,8 @@ Masing-masing class memiliki Methods:
 ![Dokum TP3 CPP](https://github.com/user-attachments/assets/c651218f-16c6-415a-8f0e-13612488c5f7)
 
 ## PYTHON
-![Dokum TP3 Python](https://github.com/user-attachments/assets/d9180bb6-696e-48fd-a96f-60392049a5c9)
+![Dokum TP3 Python](https://github.com/user-attachments/assets/087e0a42-5e2e-4b2d-ad68-3784fb7dac3a)
 
 ## JAVA
-![Dokum TP3 Java](https://github.com/user-attachments/assets/a2c6b963-50ad-4877-a697-7aeeb7b347db)
+![Dokum TP3 Java](https://github.com/user-attachments/assets/3613a75a-8be1-48b1-a2d6-6452426eac18)
+
